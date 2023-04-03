@@ -1,0 +1,137 @@
+simpleArgs: &simple-args
+  privacyRatingSc: '0x0E2Ad473170e6B5D8AD843308eC52A9f6c5F8441'
+  numberOfBuyers: &number-Of-Buyers 160 
+  txDurations : &tx-Duration 50
+
+
+test:
+  name: registerSc
+  description: >-
+    This is an example benchmark for Caliper, to test the backend DLT's
+    performance with RegisterSc, adding subscriptions and confirm delivery transactions.
+  workers:
+    type: local
+    number: 1
+  rounds:
+    - label: initialize
+      description: >-
+        Test description for the initializing the privacyRatingSc in registerSc
+        contract.
+      txNumber: 1
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 1
+      workload:
+        module: benchmarks/scenario/registerSc/initialize.js
+        arguments: *simple-args
+    - label: retrieveProfile_1
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_2
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_3
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_4
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_5
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_6
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_7
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_8
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_9
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_10
+      description: >-
+        Test description for registering sellers in the marketplace
+      txDuration: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args

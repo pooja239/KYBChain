@@ -1,0 +1,75 @@
+simpleArgs: &simple-args
+  privacyRatingSc: '0xe22b83e326574542Fa797C76c7104f483aC9e741'
+  numberOfBuyers: &number-Of-Buyers 200 
+  txDurations : &tx-Duration 2000 
+
+
+test:
+  name: registerSc
+  description: >-
+    This is an example benchmark for Caliper, to test the backend DLT's
+    performance with RegisterSc, adding subscriptions and confirm delivery transactions.
+  workers:
+    type: local
+    number: 1
+  rounds:
+    - label: initialize
+      description: >-
+        Test description for the initializing the privacyRatingSc in registerSc
+        contract.
+      txNumber: 1
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 1
+      workload:
+        module: benchmarks/scenario/registerSc/initialize.js
+        arguments: *simple-args
+    - label: retrieveProfile_50
+      description: >-
+        Test description for registering sellers in the marketplace
+      txNumber: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 50 
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+    - label: retrieveProfile_100
+      description: >-
+        Test description for registering sellers in the marketplace
+      txNumber: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 100 
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+
+    - label: retrieveProfile_150
+      description: >-
+        Test description for registering sellers in the marketplace
+      txNumber: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 150
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+
+    - label: retrieveProfile_200
+      description: >-
+        Test description for registering sellers in the marketplace
+      txNumber: *tx-Duration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 200
+      workload:
+        module: benchmarks/scenario/registerSc/retrieveProfile.js
+        arguments: *simple-args
+
+

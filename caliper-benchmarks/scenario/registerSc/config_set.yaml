@@ -1,0 +1,16 @@
+simpleArgs: &simple-args
+  privacyRatingSc: ''
+  numberOfBuyers: &number-of-Buyers 1
+  numberOfSellers: &number-of-Seller 1
+  numberOfSubcriptions: &number-Of-Subcription 1
+
+
+test:
+  name: registerSc
+  description: >-
+    This is an example benchmark for Caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions.
+  workers:
+    type: local
+    number: 1
+  rounds:

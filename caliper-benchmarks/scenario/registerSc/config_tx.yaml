@@ -1,0 +1,345 @@
+simpleArgs: &simple-args
+  privacyRatingSc: '0xe22b83e326574542Fa797C76c7104f483aC9e741'
+  numberOfAgreements: &number-of-agreements 10
+  transaction: &transaction 4000
+
+test:
+  name: registerSc
+  description: >-
+    This is an example benchmark for Caliper, to test the backend DLT's
+    performance with RegisterSc, adding subscriptions and confirm delivery transactions.
+  workers:
+    type: local
+    number: 1
+  rounds:
+    - label: initialize
+      description: >-
+        Test description for the initializing the privacyRatingSc in registerSc
+        contract.
+      txNumber: 1
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 1
+      workload:
+        module: benchmarks/scenario/registerSc/initialize.js
+        arguments: *simple-args
+    - label: registerSeller
+      description: >-
+        Test description for registering sellers in the marketplace
+      txNumber: *number-of-agreements 
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 1
+      workload:
+        module: benchmarks/scenario/registerSc/registerSeller.js
+        arguments: *simple-args
+    - label: registerBuyer
+      description: >-
+        Test description for registering buyers in the marketplace
+        contract.
+      txNumber: *number-of-agreements 
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 1
+      workload:
+        module: benchmarks/scenario/registerSc/registerBuyer.js
+        arguments: *simple-args
+    - label: registerAgreement
+      description: >-
+        Test description for registering agreement
+        contract.
+      txNumber: *number-of-agreements 
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 1
+      workload:
+        module: benchmarks/scenario/registerSc/registerAgreement.js
+        arguments: *simple-args
+
+
+    - label: addSubscriptions_20
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 20
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 1
+    - label: confirmDelivery_20
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 20
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 1
+
+    - label: addSubscriptions_40
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 40
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 2
+    - label: confirmDelivery_40
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 40
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 2
+
+    - label: addSubscriptions_60
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 60
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 3
+    - label: confirmDelivery_60
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 60
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 3
+
+    - label: addSubscriptions_80
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 80
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 4
+    - label: confirmDelivery_80
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 80
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 4
+
+    - label: addSubscriptions_100
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 100
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 5
+    - label: confirmDelivery_100
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 100
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 5
+
+    - label: addSubscriptions_120
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 120
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 6
+    - label: confirmDelivery_120
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 120
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 6
+
+    - label: addSubscriptions_140
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 140
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 7
+    - label: confirmDelivery_140
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 140
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 7
+
+    - label: addSubscriptions_160
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 160
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 8
+    - label: confirmDelivery_160
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 160
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 8
+
+    - label: addSubscriptions_180
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 180
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 9
+    - label: confirmDelivery_180
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 180
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 9
+
+    - label: addSubscriptions_200
+      description: >-
+        Test description for adding subscription details in the deployed
+        contract.
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 200
+      workload:
+        module: benchmarks/scenario/registerSc/addSubscription.js
+        arguments:
+          << : *simple-args
+          index: 10
+    - label: confirmDelivery_200
+      description: >-
+        Test description for confirming the delivery of data by buyer
+      txNumber: *transaction
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 200
+      workload:
+        module: benchmarks/scenario/registerSc/confirmDelivery.js
+        arguments:
+          << : *simple-args
+          index: 10
+
+
+ 
