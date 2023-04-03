@@ -1,0 +1,40 @@
+
+simpleArgs: &simple-args
+  privacyRatingSc: '0xBD8C18a42a20e65a985BCB19ee2b51eeD7F8EF82'
+  numberOfAgreements: &number-of-agreements 2
+  transactionDuration: &transactionDuration 50
+
+test:
+  name: registerSc
+  description: >-
+    This is an example benchmark for Caliper, to test the backend DLT's
+    performance with RegisterSc, adding subscriptions and confirm delivery transactions.
+  workers:
+    type: local
+    number: 1
+  rounds:
+    - label: initialize
+      description: >-
+        Test description for the initializing the privacyRatingSc in registerSc
+        contract.
+      txNumber: 1
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 1
+      workload:
+        module: benchmarks/scenario/registerSc_write/initialize.js
+        arguments: *simple-args
+    - label: registerBuyer_100
+      description: >-
+        Test description for registering buyers in the marketplace
+        contract.
+      txDuration: *transactionDuration
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 100
+      workload:
+        module: benchmarks/scenario/registerSc_write/registerBuyer.js
+        arguments: *simple-args
+
