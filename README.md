@@ -18,4 +18,4 @@ setup.py: deploys all the smart contracts in the network
 
 Baseline: Contains the implementation of baseline (registerSc, subscriptionSc, )
 
-caliper_benchmark: contains all the config files to run tests on the SUT. It is equipped with all the aforementioned contracts for benchmarking purpose.
+caliper-benchmarks: contains all the config files to run tests on the SUT. It is equipped with all the aforementioned contracts for benchmarking purpose.
