@@ -1,4 +1,4 @@
-# KYBchain1
+# KYBchain
 
 This is the POC implementation of KYBchain framework
 
